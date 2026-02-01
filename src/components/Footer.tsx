@@ -3,25 +3,25 @@ import { Link } from 'react-router-dom';
 
 export const Footer: React.FC = () => {
     return (
-        <footer className="bg-gray-50 border-t border-gray-100 py-12">
+        <footer className="bg-steel-50 border-t border-steel-200 py-16">
             <div className="container mx-auto px-4">
-                <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-                    <div className="text-sm text-gray-500">
+                <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+                    <div className="text-sm text-steel-500 font-medium">
                         © {new Date().getFullYear()} Consulting on Cooking. All rights reserved.
                     </div>
 
-                    <div className="flex gap-6 flex-wrap justify-center">
-                        <Link to="/about" className="text-gray-500 hover:text-coc-green text-sm">About</Link>
-                        <Link to="/contact" className="text-gray-500 hover:text-coc-green text-sm">Contact</Link>
-                        <Link to="/privacy" className="text-gray-500 hover:text-coc-green text-sm">Privacy</Link>
-                        <Link to="/terms" className="text-gray-500 hover:text-coc-green text-sm">Terms</Link>
+                    <div className="flex gap-8 flex-wrap justify-center">
+                        <Link to="/about" className="text-steel-500 hover:text-coc-blue text-sm font-medium transition-colors">About</Link>
+                        <Link to="/contact" className="text-steel-500 hover:text-coc-blue text-sm font-medium transition-colors">Contact</Link>
+                        <Link to="/privacy" className="text-steel-500 hover:text-coc-blue text-sm font-medium transition-colors">Privacy</Link>
+                        <Link to="/terms" className="text-steel-500 hover:text-coc-blue text-sm font-medium transition-colors">Terms</Link>
                     </div>
 
                     <div className="flex gap-4">
                         {/* Social Placeholders */}
-                        <div className="w-8 h-8 rounded-full bg-gray-200"></div>
-                        <div className="w-8 h-8 rounded-full bg-gray-200"></div>
-                        <div className="w-8 h-8 rounded-full bg-gray-200"></div>
+                        {[1, 2, 3].map(i => (
+                            <div key={i} className="w-10 h-10 rounded-full bg-steel-200 hover:bg-steel-300 transition-colors cursor-pointer"></div>
+                        ))}
                     </div>
                 </div>
             </div>

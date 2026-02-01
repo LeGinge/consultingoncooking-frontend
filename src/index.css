@@ -2,12 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+@layer base {
+  body {
+    @apply bg-steel-50 text-steel-900 font-sans antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading;
+  }
 }
 
-body {
-  margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
+@layer components {
+  .hero-background {
+    @apply relative bg-cover bg-center;
+    background-image: url('/assets/steel-bg-1.jpg');
+  }
+
+  .hero-background::after {
+    content: '';
+    @apply absolute inset-0;
+    background: linear-gradient(135deg,
+        rgba(255, 255, 255, 0.92) 0%,
+        rgba(255, 255, 255, 0.75) 50%,
+        rgba(255, 255, 255, 0.6) 100%);
+  }
+
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-xl;
+  }
+
+  .steel-surface {
+    background-image:
+      linear-gradient(135deg, rgba(244, 244, 245, 0.98) 0%, rgba(228, 228, 231, 0.7) 100%),
+      url('/assets/steel-bg-2.jpg');
+    background-size: cover;
+  }
 }

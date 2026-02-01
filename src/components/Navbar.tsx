@@ -13,11 +13,14 @@ export const Navbar: React.FC = () => {
     ];
 
     return (
-        <nav className="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md z-40 border-b border-gray-100">
-            <div className="container mx-auto px-4 py-3 flex justify-between items-center">
+        <nav className="fixed top-4 left-4 right-4 z-50">
+            <div className="max-w-7xl mx-auto bg-white/80 backdrop-blur-xl border border-white/40 rounded-2xl shadow-lg shadow-black/5 px-6 py-4 flex justify-between items-center">
                 {/* Logo */}
                 <Link to="/" className="flex items-center gap-2">
-                    <img src={logo} alt="Consulting on Cooking" className="h-10 md:h-12 w-auto" />
+                    <img src={logo} alt="Consulting on Cooking" className="h-10 w-auto" />
+                    <span className="font-heading font-bold text-xl text-steel-800 tracking-tight hidden sm:block">
+                        Consulting on <span className="text-coc-green">Cooking</span>
+                    </span>
                 </Link>
 
                 {/* Desktop Nav */}
@@ -27,7 +30,7 @@ export const Navbar: React.FC = () => {
                             <a
                                 key={link.label}
                                 href={link.to}
-                                className="text-gray-600 hover:text-coc-green font-medium transition-colors"
+                                className="text-steel-600 hover:text-coc-blue font-medium transition-colors"
                             >
                                 {link.label}
                             </a>
@@ -35,17 +38,17 @@ export const Navbar: React.FC = () => {
                     </div>
                     <div className="flex gap-3">
                         <Link to="/login">
-                            <Button variant="outline" className="px-5 py-2">Login</Button>
+                            <Button variant="white" className="shadow-sm border border-steel-200 text-steel-700 hover:bg-steel-50">Log In</Button>
                         </Link>
                         <Link to="/register">
-                            <Button variant="primary" className="px-5 py-2">Get Started</Button>
+                            <Button variant="primary" className="shadow-md shadow-coc-blue/20">Get Started</Button>
                         </Link>
                     </div>
                 </div>
 
                 {/* Mobile Toggle */}
                 <button
-                    className="md:hidden p-2 text-gray-600"
+                    className="md:hidden p-2 text-steel-600"
                     onClick={() => setIsOpen(!isOpen)}
                 >
                     <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -60,21 +63,21 @@ export const Navbar: React.FC = () => {
 
             {/* Mobile Menu */}
             {isOpen && (
-                <div className="md:hidden bg-white border-t border-gray-100 p-4 shadow-xl absolute w-full left-0">
-                    <div className="flex flex-col gap-4">
+                <div className="absolute top-full left-0 right-0 mt-2 px-4 md:hidden">
+                    <div className="bg-white/95 backdrop-blur-xl border border-white/40 rounded-2xl shadow-xl p-4 flex flex-col gap-4">
                         {links.map(link => (
                             <a
                                 key={link.label}
                                 href={link.to}
-                                className="text-gray-600 font-medium py-2 border-b border-gray-50"
+                                className="text-steel-600 font-medium py-2 border-b border-steel-100"
                                 onClick={() => setIsOpen(false)}
                             >
                                 {link.label}
                             </a>
                         ))}
-                        <div className="flex flex-col gap-2 mt-2">
+                        <div className="flex flex-col gap-3 mt-2">
                             <Link to="/login" onClick={() => setIsOpen(false)}>
-                                <Button variant="outline" fullWidth>Login</Button>
+                                <Button variant="outline" fullWidth>Log In</Button>
                             </Link>
                             <Link to="/register" onClick={() => setIsOpen(false)}>
                                 <Button variant="primary" fullWidth>Get Started</Button>
